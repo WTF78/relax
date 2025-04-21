@@ -1,8 +1,11 @@
 'use client';
 import Image from "next/image";
 import React, {useState,  useRef, useEffect, useLayoutEffect} from "react";
+import config from "../../postcss.config.mjs";
+import nextConfig from "../../next.config";
 
 export default function Home() {
+    const path = nextConfig.basePath;
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -21,9 +24,9 @@ export default function Home() {
     };
 
     const images = [
-        {title: "Classic", img: "/pexels-pixabay-289227.jpg"},
-        {title: "Hard", img: "/pexels-darcy-delia-345397-950760.jpg"},
-        {title: "Special", img: "/pexels-james-superschoolnews-349383308-14461359.jpg"},
+        {title: "Classic", img: path+"/pexels-pixabay-289227.jpg"},
+        {title: "Hard", img: path+"/pexels-darcy-delia-345397-950760.jpg"},
+        {title: "Special", img: path+"/pexels-james-superschoolnews-349383308-14461359.jpg"},
     ];
 
     const [activeCollapse, setActiveCollapse] = useState(0);
@@ -101,7 +104,7 @@ export default function Home() {
             <header
                 className="flex w-full top-0 justify-center items-center">
                 <div className="flex h-full justify-center items-center w-full max-w-7xl px-1">
-                    <Image src="/Logo.png" alt="Charm" width={220} height={100}
+                    <Image src={`${path}/Logo.png`} alt="Charm" width={220} height={100}
                            className="logo-dark object-contain pb-4 pt-1"/>
                 </div>
             </header>
