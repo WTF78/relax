@@ -53,7 +53,7 @@ export default function Home() {
     useLayoutEffect(() => {
         async function fetchData() {
             try {
-                const res = await fetch('/data/data.json');
+                const res = await fetch(path+'/data/data.json');
                 const result = await res.json();
                 const fetchedData = result;
                 setData(fetchedData);
